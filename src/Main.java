@@ -20,10 +20,11 @@ public class Main {
                     int tablica[] = new int[size];
                     for (int i =0; i<size;i++) {
                         System.out.println("Podaj kolejna liczbe");
-                        tablica[i]= scanner.nextInt();
+                        tablica[i]= readNumber(max);
                     }
                     CountingSort(tablica,max);
                     for (int i=0;i < tablica.length;i++) {
+
                         System.out.print(tablica[i] + ", ");
                 }
                     System.out.println("");
@@ -58,4 +59,17 @@ public class Main {
             }
         }
     }
-}
+
+    public static int readNumber(int max) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        if (number <= max) {
+            return number;
+        }
+        else {
+            System.out.println("Podana liczba nie znajduje sie w zakresie");
+            return readNumber(max);
+
+        }
+        }
+    }
